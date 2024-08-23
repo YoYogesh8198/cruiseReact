@@ -9,7 +9,7 @@ import img7 from "/greatleaving/scroll_img7.jpg";
 
 function PopularDestination() {
   return (
-    <div className="page">
+    <div className="page img-area">
       <header className="header page__header">
         <h1 className="header__title" style={{ textDecoration: "underline" }}>
           Popular Destination{" "}
@@ -18,19 +18,82 @@ function PopularDestination() {
       <main className="page-main page__main">
         <div className="gallery main__gallery">
           <div className="gallery__col">
-            <img className="gallery__img" src={img1} alt="" />
-            <img className="gallery__img" src={img3} alt="" />
+            <div className="single-img">
+              <img className="gallery__img" src={img1} alt="" />
+              <div class="img-overlay">
+                <div class="text">
+                  Oia <br />
+                  <span>City in Greece</span>
+                </div>
+              </div>
+            </div>
+            <div className="single-img">
+              <img className="gallery__img" src={img3} alt="" />
+              <div class="img-overlay">
+                <div class="text">
+                  Norwegian Aqua <br />
+                  <span>Cruise Ship</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="gallery__col">
-            <img className="gallery__img" src={img4} alt="" />
-            <img className="gallery__img" src={img2} alt="" />
+            <div className="single-img">
+              <img className="gallery__img" src={img4} alt="" />
+              <div class="img-overlay">
+                <div class="text">
+                  Celebrity Apex
+                  <br />
+                  <span>Edge-class cruise ship</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="single-img">
+              <img className="gallery__img" src={img2} alt="" />
+              <div class="img-overlay">
+                <div class="text">
+                  Oaxaca
+                  <br />
+                  <span>City in Mexico</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="gallery__col">
-            <img className="gallery__img" src={img5} alt="" />
-            <img className="gallery__img" src={img6} alt="" />
-            <img className="gallery__img" src={img7} alt="" />
+            <div className="single-img">
+              <img className="gallery__img" src={img5} alt="" />
+              <div class="img-overlay">
+                <div class="text">
+                  Disney Fantasy
+                  <br />
+                  <span>Cruise Ship</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="single-img">
+              <img className="gallery__img" src={img6} alt="" />
+              <div class="img-overlay">
+                <div class="text">
+                  Sky Princess <br />
+                  <span>Royal-class cruise ship</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="single-img">
+              <img className="gallery__img" src={img7} alt="" />
+              <div class="img-overlay">
+                <div class="text">
+                  Princess
+                  <br />
+                  <span>Cruise Ship</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
