@@ -1,8 +1,5 @@
 import React from "react";
-import img1 from "/topcruise/celebrity.jpg";
-import img2 from "/topcruise/norwegian_img5.jpg";
-import img3 from "/topcruise/viking.jpg";
-import img4 from "/topcruise/princess.jpg";
+
 
 const TopCruise = () => {
   return (
@@ -15,16 +12,16 @@ const TopCruise = () => {
       <div className="grid-container">
         <div className="grid-container1">
           <div className="grid-item item1">
-            <img src={img1} alt="" />
+            <p>CELEBRITY APEX</p>
           </div>
           <div className="grid-item item2">
-            <img src={img2} alt="" />
+            <p>NORWEGIAN AQUA</p>
           </div>
           <div className="grid-item item3">
-            <img src={img3} alt="" />
+            <p>Viking</p>
           </div>
           <div className="grid-item item4">
-            <img src={img4} alt="" />
+            <p>SKY PRINCESS</p>
           </div>
         </div>
       </div>

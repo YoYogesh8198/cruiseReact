@@ -20,7 +20,7 @@ const PopularPlace = () => {
     <>
       <header className="header page__header">
         <h1 className="header__title" style={{ textDecoration: "underline" }}>
-          Top Cruises Places
+          Top Popular Places
         </h1>
       </header>
       <section id="slideshow">

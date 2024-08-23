@@ -3102,27 +3102,57 @@ input[type="checkbox"]:checked {
 }
 
 .item1 {
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-position: center;
+  background-size: cover;
+  background-image: url("./topcruise/celebrity.jpg");
   grid-area: item1;
 }
 
 .item2 {
+  background-image: url("./topcruise/norwegian_img5.jpg");
   grid-area: item2;
 }
 
 .item3 {
+  background-image: url("./topcruise/viking.jpg");
   grid-area: item3;
 }
 
 .item4 {
+  background-image: url("./topcruise/princess.jpg");
   grid-area: item4;
 }
+.grid-item{
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-position: center;
+  background-size: cover;
+  }
 
-.item5 {
-  grid-area: item5;
+.grid-item p{
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.8s;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
 
-.item6 {
-  grid-area: item6;
+.grid-item:hover{
+  box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.534) inset;
+}
+
+.grid-item:hover p{
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* popular cruise destinaion */
@@ -3168,7 +3198,7 @@ input[type="checkbox"]:checked {
 }
 
 .header {
-  padding: var(--size-9) var(--size-6);
+  /* padding: var(--size-9) var(--size-6); */
   text-align: center;
 }
 
@@ -3236,10 +3266,10 @@ input[type="checkbox"]:checked {
 /* popular places */
 #slideshow {
   margin: 0 auto;
-  padding-top: 50px;
+  /* padding-top: 50px; */
   height: 500px;
   width: 100%;
-  background-color: #3e4443;
+  /* background-color: #ffffff; */
   box-sizing: border-box;
 }
 
