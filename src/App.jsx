@@ -10,19 +10,20 @@ import TopCruise from "./Places/TopCruise";
 import PopularDestination from "./Places/PopularDestination";
 import PopularPlace from "./Places/popularPlace";
 import Demo from "./Demo";
+import BestPlace from "./Places/BestPlace";
 
 const App = () => {
   return (
     <div>
-      <Header />
+      {/* <Header />
       <PrimeReactProvider>
         <CruiseForm />
-        {/* <Demo /> */}
       </PrimeReactProvider>
 
       <TopCruise />
       <PopularDestination />
-      <PopularPlace />
+      <PopularPlace /> */}
+      <BestPlace/>
     </div>
   );
 };
