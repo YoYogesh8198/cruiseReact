@@ -1,128 +1,128 @@
 [
     {
-        "destination": "Caribbean"
+        "value": "Caribbean"
     },
     {
-        "destination": "Mexico"
+        "value": "Mexico"
     },
     {
-        "destination": "Bahamas"
+        "value": "Bahamas"
     },
     {
-        "destination": "Alaska"
+        "value": "Alaska"
     },
     {
-        "destination": "Europe"
+        "value": "Europe"
     },
     {
-        "destination": "Hawaii"
+        "value": "Hawaii"
     },
     {
-        "destination": "Bermuda"
+        "value": "Bermuda"
     },
     {
-        "destination": "Canada/New England/NY"
+        "value": "Canada/New England/NY"
     },
     {
-        "destination": "River Cruises"
+        "value": "River Cruises"
     },
     {
-        "destination": "Any Destination"
+        "value": "Any value"
     },
     {
-        "destination": "Alaska - All"
+        "value": "Alaska - All"
     },
     {
-        "destination": "Alaska - Gulf of Alaska"
+        "value": "Alaska - Gulf of Alaska"
     },
     {
-        "destination": "Alaska - Inside Passage"
+        "value": "Alaska - Inside Passage"
     },
     {
-        "destination": "Antarctica"
+        "value": "Antarctica"
     },
     {
-        "destination": "Australia/New Zealand"
+        "value": "Australia/New Zealand"
     },
     {
-        "destination": "Caribbean - All"
+        "value": "Caribbean - All"
     },
     {
-        "destination": "Caribbean - Eastern"
+        "value": "Caribbean - Eastern"
     },
     {
-        "destination": "Caribbean - Southern"
+        "value": "Caribbean - Southern"
     },
     {
-        "destination": "Caribbean - Western"
+        "value": "Caribbean - Western"
     },
     {
-        "destination": "Europe - All"
+        "value": "Europe - All"
     },
     {
-        "destination": "Europe - E. Mediterranean"
+        "value": "Europe - E. Mediterranean"
     },
     {
-        "destination": "Europe - Mediterranean - All"
+        "value": "Europe - Mediterranean - All"
     },
     {
-        "destination": "Europe - Northern"
+        "value": "Europe - Northern"
     },
     {
-        "destination": "Europe - W. Mediterranean"
+        "value": "Europe - W. Mediterranean"
     },
     {
-        "destination": "Europe - Western"
+        "value": "Europe - Western"
     },
     {
-        "destination": "Exotic - Asia/Africa/Other"
+        "value": "Exotic - Asia/Africa/Other"
     },
     {
-        "destination": "Galapagos"
+        "value": "Galapagos"
     },
     {
-        "destination": "Pacific Coast"
+        "value": "Pacific Coast"
     },
     {
-        "destination": "Panama Canal/C. America"
+        "value": "Panama Canal/C. America"
     },
     {
-        "destination": "River Cruises - All"
+        "value": "River Cruises - All"
     },
     {
-        "destination": "River Cruises - China/Asia"
+        "value": "River Cruises - China/Asia"
     },
     {
-        "destination": "River Cruises - Egypt/Africa"
+        "value": "River Cruises - Egypt/Africa"
     },
     {
-        "destination": "River Cruises - Europe"
+        "value": "River Cruises - Europe"
     },
     {
-        "destination": "River Cruises - South America"
+        "value": "River Cruises - South America"
     },
     {
-        "destination": "River Cruises - United States"
+        "value": "River Cruises - United States"
     },
     {
-        "destination": "South America"
+        "value": "South America"
     },
     {
-        "destination": "South Pacific - All"
+        "value": "South Pacific - All"
     },
     {
-        "destination": "South Pacific - Tahiti"
+        "value": "South Pacific - Tahiti"
     },
     {
-        "destination": "Transatlantic"
+        "value": "Transatlantic"
     },
     {
-        "destination": "Transpacific"
+        "value": "Transpacific"
     },
     {
-        "destination": "U.S. - All"
+        "value": "U.S. - All"
     },
     {
-        "destination": "World Cruise"
+        "value": "World Cruise"
     }
 ]

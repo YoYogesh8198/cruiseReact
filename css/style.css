@@ -817,9 +817,9 @@ a:visited {
 }
 
 .banner_sec_por .world_lar {
-  margin-top: 3px;
+  /* margin-top: 3px; */
   background: rgb(181 181 181 / 30%);
-  padding: 14px 0;
+  padding: 8px 0;
   font-size: 22px;
   color: rgb(55, 101, 175);
   font-weight: bold;
@@ -3050,7 +3050,7 @@ input[type="checkbox"]:checked {
 }
 
 
-/* grid iamges */
+/* Top cruise Line */
 .top-place-heading {
   text-decoration: underline;
   text-align: center;
@@ -3489,17 +3489,6 @@ input[type="checkbox"]:checked {
   cursor: pointer;
 }
 
-/* .p-multiselect-label-container .p-multiselect-label {
-  margin-left: 10px;
-} */
-
-/* .p-placeholder {
-  margin-left: 10px;
-} */
-
-/* .p-multiselect-items-label {
-  margin-left: 10px;
-} */
 
 .p-multiselect-checkbox {
   padding: 0;
@@ -3525,17 +3514,11 @@ input[type="checkbox"]:checked {
   padding: 10px 20px;
 }
 
-/* .p-inputtext {
-  margin: 7px;
-} */
 
 .btn-sub {
   margin-top: 33px;
 }
 
-/* .p-inputtext {
-  margin: 0px;
-} */
 
 input::placeholder {
   color: #6B7280 !important;
@@ -3992,7 +3975,6 @@ ul.social-footer2 li a {
 
 .p-datepicker th {
   text-align: center !important;
-  /* text-align: -webkit-match-parent; */
 }
 
 .p-component {
@@ -4000,10 +3982,6 @@ ul.social-footer2 li a {
   margin: 0px;
 }
 
-/* .p-calendar .p-component {
-  border: none;
-  margin: 7px !important;
-} */
 .p-datepicker .p-datepicker-header {
   padding: 0 !important;
 }

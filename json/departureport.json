@@ -1,122 +1,122 @@
 [
     {
-        "departurePort": "AL - Mobile"
+        "value": "AL - Mobile"
     },
     {
-        "departurePort": "CA - LA/Long Beach"
+        "value": "CA - LA/Long Beach"
     },
     {
-        "departurePort": "CA - LA/San Pedro"
+        "value": "CA - LA/San Pedro"
     },
     {
-        "departurePort": "CA - San Diego"
+        "value": "CA - San Diego"
     },
     {
-        "departurePort": "CA - San Francisco"
+        "value": "CA - San Francisco"
     },
     {
-        "departurePort": "FL - Ft. Lauderdale"
+        "value": "FL - Ft. Lauderdale"
     },
     {
-        "departurePort": "FL - Jacksonville"
+        "value": "FL - Jacksonville"
     },
     {
-        "departurePort": "FL - Miami"
+        "value": "FL - Miami"
     },
     {
-        "departurePort": "FL - Port Canaveral"
+        "value": "FL - Port Canaveral"
     },
     {
-        "departurePort": "FL - Tampa"
+        "value": "FL - Tampa"
     },
     {
-        "departurePort": "HI - Honolulu/Oahu"
+        "value": "HI - Honolulu/Oahu"
     },
     {
-        "departurePort": "LA - New Orleans"
+        "value": "LA - New Orleans"
     },
     {
-        "departurePort": "MA - Boston"
+        "value": "MA - Boston"
     },
     {
-        "departurePort": "MD - Baltimore"
+        "value": "MD - Baltimore"
     },
     {
-        "departurePort": "NY - Bayonne/New Jersey"
+        "value": "NY - Bayonne/New Jersey"
     },
     {
-        "departurePort": "NY - Brooklyn"
+        "value": "NY - Brooklyn"
     },
     {
-        "departurePort": "NY - New York"
+        "value": "NY - New York"
     },
     {
-        "departurePort": "SC - Charleston"
+        "value": "SC - Charleston"
     },
     {
-        "departurePort": "TX - Galveston"
+        "value": "TX - Galveston"
     },
     {
-        "departurePort": "Argentina - Buenos Aires"
+        "value": "Argentina - Buenos Aires"
     },
     {
-        "departurePort": "Barbados - Bridgetown"
+        "value": "Barbados - Bridgetown"
     },
     {
-        "departurePort": "Chile - Valparaiso"
+        "value": "Chile - Valparaiso"
     },
     {
-        "departurePort": "England - Southampton"
+        "value": "England - Southampton"
     },
     {
-        "departurePort": "France - Paris"
+        "value": "France - Paris"
     },
     {
-        "departurePort": "Germany - Nuremberg"
+        "value": "Germany - Nuremberg"
     },
     {
-        "departurePort": "Greece - Piraeus/Athens"
+        "value": "Greece - Piraeus/Athens"
     },
     {
-        "departurePort": "Hong Kong"
+        "value": "Hong Kong"
     },
     {
-        "departurePort": "Hungary - Budapest"
+        "value": "Hungary - Budapest"
     },
     {
-        "departurePort": "Italy - Rome/Civitavecchia"
+        "value": "Italy - Rome/Civitavecchia"
     },
     {
-        "departurePort": "Italy - Venice"
+        "value": "Italy - Venice"
     },
     {
-        "departurePort": "Netherlands - Amsterdam"
+        "value": "Netherlands - Amsterdam"
     },
     {
-        "departurePort": "Norway - Bergen"
+        "value": "Norway - Bergen"
     },
     {
-        "departurePort": "Portugal - Lisbon"
+        "value": "Portugal - Lisbon"
     },
     {
-        "departurePort": "Puerto Rico - San Juan"
+        "value": "Puerto Rico - San Juan"
     },
     {
-        "departurePort": "Spain - Barcelona"
+        "value": "Spain - Barcelona"
     },
     {
-        "departurePort": "St. Maarten - Philipsburg"
+        "value": "St. Maarten - Philipsburg"
     },
     {
-        "departurePort": "Switzerland - Basel"
+        "value": "Switzerland - Basel"
     },
     {
-        "departurePort": "Tahiti - Papeete"
+        "value": "Tahiti - Papeete"
     },
     {
-        "departurePort": "Turkey - Istanbul"
+        "value": "Turkey - Istanbul"
     },
     {
-        "departurePort": "U.A.E. - Dubai"
+        "value": "U.A.E. - Dubai"
     }
 ]

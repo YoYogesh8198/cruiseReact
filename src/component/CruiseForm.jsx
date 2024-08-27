@@ -128,7 +128,7 @@ function CruiseForm() {
   useEffect(() => {
     setDestinationListItems(
       destinationList.map((item) => ({
-        label: item.destination,
+        label: item.value,
         value: item,
       }))
     );
@@ -144,7 +144,7 @@ function CruiseForm() {
   useEffect(() => {
     setcruiselineListItems(
       cruiselineList.map((item) => ({
-        label: item.cruisename,
+        label: item.value,
         value: item,
       }))
     );
@@ -152,7 +152,7 @@ function CruiseForm() {
   useEffect(() => {
     setcruiseShipListItems(
       cruiseShipsList.map((item) => ({
-        label: item.cruiseShips,
+        label: item.value,
         value: item,
       }))
     );
@@ -160,7 +160,7 @@ function CruiseForm() {
   useEffect(() => {
     setdepartureportListItems(
       departureportList.map((item) => ({
-        label: item.departurePort,
+        label: item.value,
         value: item,
       }))
     );
@@ -225,6 +225,13 @@ function CruiseForm() {
     const options = { year: "numeric", month: "short", day: "numeric" };
     return new Date(date).toLocaleDateString("en-US", options);
   };
+  const formatDropdownValues = (dropdownValues) => {
+    if (dropdownValues.length === 1) {
+      return dropdownValues[0].value; // Single value
+    } else {
+      return JSON.stringify(dropdownValues.map((d) => d.value)); // Multiple values as array
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -246,27 +253,11 @@ function CruiseForm() {
     }
 
     // Append selected options as JSON
-    console.log(destination);
-    postData.append(
-      "destination",
-      JSON.stringify(destination.map((d) => d.destination))
-    );
-    postData.append(
-      "cruiselength",
-      JSON.stringify(cruiselength.map((c) => c.value))
-    );
-    postData.append(
-      "cruiseline",
-      JSON.stringify(cruiseline.map((c) => c.cruisename))
-    );
-    postData.append(
-      "cruiseShip",
-      JSON.stringify(cruiseShip.map((c) => c.cruiseShips))
-    );
-    postData.append(
-      "departureport",
-      JSON.stringify(departureport.map((d) => d.departurePort))
-    );
+    postData.append("destination", formatDropdownValues(destination));
+    postData.append("cruiselength", formatDropdownValues(cruiselength));
+    postData.append("cruiseline", formatDropdownValues(cruiseline));
+    postData.append("cruiseShip", formatDropdownValues(cruiseShip));
+    postData.append("departureport", formatDropdownValues(departureport));
 
     // Format form data for the toast, excluding empty values
     let formDataString = "";
