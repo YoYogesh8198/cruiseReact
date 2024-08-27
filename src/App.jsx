@@ -1,6 +1,5 @@
 import React from "react";
 import { PrimeReactProvider } from "primereact/api";
-import "primereact/resources/themes/lara-light-cyan/theme.css";
 import Header from "./component/Header";
 import "../css/style.css";
 import "../css/bootstrap.min.css";
@@ -11,19 +10,20 @@ import PopularDestination from "./Places/PopularDestination";
 import PopularPlace from "./Places/popularPlace";
 import Demo from "./Demo";
 import BestPlace from "./Places/BestPlace";
+import Footer from "./component/Footer";
 
 const App = () => {
   return (
     <div>
-      {/* <Header />
+      <Header />
       <PrimeReactProvider>
         <CruiseForm />
       </PrimeReactProvider>
-
       <TopCruise />
       <PopularDestination />
-      <PopularPlace /> */}
-      <BestPlace/>
+      <PopularPlace />
+      <BestPlace />
+      <Footer />
     </div>
   );
 };

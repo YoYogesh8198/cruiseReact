@@ -20,8 +20,8 @@ function PopularDestination() {
           <div className="gallery__col">
             <div className="single-img">
               <img className="gallery__img" src={img1} alt="" />
-              <div class="img-overlay">
-                <div class="text">
+              <div className="img-overlay">
+                <div className="text">
                   Oia <br />
                   <span>City in Greece</span>
                 </div>
@@ -29,8 +29,8 @@ function PopularDestination() {
             </div>
             <div className="single-img">
               <img className="gallery__img" src={img3} alt="" />
-              <div class="img-overlay">
-                <div class="text">
+              <div className="img-overlay">
+                <div className="text">
                   Norwegian Aqua <br />
                   <span>Cruise Ship</span>
                 </div>
@@ -41,19 +41,19 @@ function PopularDestination() {
           <div className="gallery__col">
             <div className="single-img">
               <img className="gallery__img" src={img4} alt="" />
-              <div class="img-overlay">
-                <div class="text">
+              <div className="img-overlay">
+                <div className="text">
                   Celebrity Apex
                   <br />
-                  <span>Edge-class cruise ship</span>
+                  <span>Edge-className cruise ship</span>
                 </div>
               </div>
             </div>
 
             <div className="single-img">
               <img className="gallery__img" src={img2} alt="" />
-              <div class="img-overlay">
-                <div class="text">
+              <div className="img-overlay">
+                <div className="text">
                   Oaxaca
                   <br />
                   <span>City in Mexico</span>
@@ -65,8 +65,8 @@ function PopularDestination() {
           <div className="gallery__col">
             <div className="single-img">
               <img className="gallery__img" src={img5} alt="" />
-              <div class="img-overlay">
-                <div class="text">
+              <div className="img-overlay">
+                <div className="text">
                   Disney Fantasy
                   <br />
                   <span>Cruise Ship</span>
@@ -76,18 +76,18 @@ function PopularDestination() {
 
             <div className="single-img">
               <img className="gallery__img" src={img6} alt="" />
-              <div class="img-overlay">
-                <div class="text">
+              <div className="img-overlay">
+                <div className="text">
                   Sky Princess <br />
-                  <span>Royal-class cruise ship</span>
+                  <span>Royal-className cruise ship</span>
                 </div>
               </div>
             </div>
 
             <div className="single-img">
               <img className="gallery__img" src={img7} alt="" />
-              <div class="img-overlay">
-                <div class="text">
+              <div className="img-overlay">
+                <div className="text">
                   Princess
                   <br />
                   <span>Cruise Ship</span>

@@ -7,9 +7,11 @@ import cruiseShipsList from "/json/cruiseShip.json";
 import departureportList from "/json/departureport.json";
 import { Dropdown } from "primereact/dropdown";
 import { InputText } from "primereact/inputtext";
+import { Calendar } from "primereact/calendar";
 
 function CruiseForm() {
   const [travelers, settravelers] = useState(null);
+  const [date, setDate] = useState(null);
   const [destination, setDestination] = useState([]);
   const [cruiselength, setCruiselength] = useState([]);
   const [cruiseline, setcruiseline] = useState([]);
@@ -216,6 +218,9 @@ function CruiseForm() {
     const count = items.length;
     return `Cruise Port [${count}]`;
   };
+
+  const today = new Date();
+  console.log(date);
   console.log(destination, cruiselength, cruiseline, cruiseShip, departureport);
   return (
     <div className="main_section">
@@ -338,7 +343,24 @@ function CruiseForm() {
                   </div>
                   <div className="form-row row m_bottom">
                     {/* cruise Date */}
-                    <div className="form-group col-md-6 p_lzero">
+                    <div className="form-group col-md-6 p_lzero nw_list">
+                      <label>Depature Date</label>
+                      <Calendar
+                        id="depart_date"
+                        name="depart_date"
+                        className="btn-secondary dropdown-toggle"
+                        value={date}
+                        onChange={(e) => setDate(e.value)}
+                        selectionMode="range"
+                        hideOnRangeSelection
+                        minDate={today}
+                        dateFormat="mm/dd/yy"
+                        placeholder="Depature Date (Any)"
+                        showButtonBar
+                      />
+                    </div>
+
+                    {/* <div className="form-group col-md-6 p_lzero">
                       <label>Departure Date</label>
                       <div className="dropdown dropdown-custom">
                         <button
@@ -352,83 +374,26 @@ function CruiseForm() {
                           </span>
                         </button>
                         <ul className="dropdown-menu">
+                          <Calendar
+                            value={dates}
+                            onChange={(e) => setDates(e.value)}
+                            selectionMode="range"
+                            readOnlyInput
+                            hideOnRangeSelection
+                          />
                           <div className="drop_scroll">
                             <li className="p-3 pb-0">
                               <select
                                 placeholder="Any Month"
                                 className="btn-secondary dropdown-toggle btn-secondary_month"
                               >
-                                <option value="" style={{ display: "none" }}>
-                                  Any Month
-                                </option>
-                                <option value="8/1/2024">August 2024</option>
-                                <option value="9/1/2024">September 2024</option>
-                                <option value="10/1/2024">October 2024</option>
-                                <option value="11/1/2024">November 2024</option>
-                                <option value="12/1/2024">December 2024</option>
-                                <option value="1/1/2025">January 2025</option>
-                                <option value="2/1/2025">February 2025</option>
-                                <option value="3/1/2025">March 2025</option>
-                                <option value="4/1/2025">April 2025</option>
-                                <option value="5/1/2025">May 2025</option>
-                                <option value="6/1/2025">June 2025</option>
-                                <option value="7/1/2025">July 2025</option>
-                                <option value="8/1/2025">August 2025</option>
-                                <option value="9/1/2025">September 2025</option>
-                                <option value="10/1/2025">October 2025</option>
-                                <option value="11/1/2025">November 2025</option>
-                                <option value="12/1/2025">December 2025</option>
-                                <option value="1/1/2026">January 2026</option>
-                                <option value="2/1/2026">February 2026</option>
-                                <option value="3/1/2026">March 2026</option>
-                                <option value="4/1/2026">April 2026</option>
-                                <option value="5/1/2026">May 2026</option>
-                                <option value="6/1/2026">June 2026</option>
-                                <option value="7/1/2026">July 2026</option>
-                                <option value="8/1/2026">August 2026</option>
-                                <option value="9/1/2026">September 2026</option>
-                                <option value="10/1/2026">October 2026</option>
-                                <option value="11/1/2026">November 2026</option>
-                                <option value="12/1/2026">December 2026</option>
+                                
                               </select>
                               <select
                                 className="btn-secondary dropdown-toggle btn-secondary_month btn-secondary_day"
                                 placeholder="Any Day"
                               >
-                                <option value="1" style={{ display: "none" }}>
-                                  Any Day
-                                </option>
-                                <option value="2">2</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
+                                
                               </select>
                             </li>
                             <li className="p-3" style={{ color: "#4560ac" }}>
@@ -474,7 +439,7 @@ function CruiseForm() {
                           </div>
                         </ul>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* cruise line */}
                     <div className="form-group col-md-6 p_lzero nw_list">

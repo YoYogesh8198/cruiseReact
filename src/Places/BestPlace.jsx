@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // Functional Carousel component
 const Carousel = ({ items, active }) => {
@@ -9,8 +9,8 @@ const Carousel = ({ items, active }) => {
 
   const moveLeft = () => {
     setDirection("left");
-    setCurrentIndex((prevIndex) =>
-      (prevIndex - 1 + items.length) % items.length
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + items.length) % items.length
     );
   };
 
@@ -36,14 +36,8 @@ const Carousel = ({ items, active }) => {
       </div>
       <TransitionGroup className="carousel-items">
         {generateItems().map((item) => (
-          <CSSTransition
-            key={item.key}
-            classNames={direction}
-            timeout={500}
-          >
-            <div className={`item level${item.level}`}>
-              {item.id}
-            </div>
+          <CSSTransition key={item.key} classNames={direction} timeout={500}>
+            <div className={`item level${item.level}`}>{item.id}</div>
           </CSSTransition>
         ))}
       </TransitionGroup>
@@ -56,8 +50,17 @@ const Carousel = ({ items, active }) => {
 
 // Main BestPlace functional component
 const BestPlace = () => {
-  const items = [];
-  return <Carousel items={items} active={0} />;
+  const items = [1, 2, 3, 4, 5, 6];
+  return (
+    <>
+      <header className="header page__header">
+        <h1 className="header__title" style={{ textDecoration: "underline" }}>
+          Best places
+        </h1>
+      </header>
+      <Carousel items={items} active={0} />
+    </>
+  );
 };
 
 // Export BestPlace component
