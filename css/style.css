@@ -3263,7 +3263,7 @@ input[type="checkbox"]:checked {
 }
 
 
-/* popular places */
+/*Top popular places */
 #slideshow {
   margin: 0 auto;
   /* padding-top: 50px; */
@@ -3348,6 +3348,7 @@ input[type="checkbox"]:checked {
   border: 1px solid #3b444b;
   overflow: hidden;
   position: absolute;
+  border-radius: 10px;
 }
 
 .content-carrousel figure:nth-child(1) {
@@ -3418,6 +3419,50 @@ input[type="checkbox"]:checked {
   }
 }
 
+.image {
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px #000;
+}
+
+.image .all {
+  transform: translateY(100%);
+  bottom: 0;
+  box-shadow: 0px 0px 10px black;
+  width: 300px;
+  position: absolute;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 1;
+  opacity: 0;
+}
+
+.image .text {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-family: "Bowlby One SC", cursive;
+}
+
+.image .bg {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  background-size: cover;
+  border-radius: 10px;
+  filter: blur(5px);
+}
+
+.image:hover .all {
+  transform: translateY(0%);
+  opacity: 1;
+}
 
 /* New Section */
 .card {
@@ -3452,9 +3497,9 @@ input[type="checkbox"]:checked {
   margin-left: 10px;
 } */
 
-.p-multiselect-items-label {
+/* .p-multiselect-items-label {
   margin-left: 10px;
-}
+} */
 
 .p-multiselect-checkbox {
   padding: 0;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MultiSelect } from "primereact/multiselect";
 import destinationList from "/json/destination.json";
 import cruiselengthList from "/json/cruiselength.json";
@@ -8,8 +8,10 @@ import departureportList from "/json/departureport.json";
 import { Dropdown } from "primereact/dropdown";
 import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
+import { Toast } from "primereact/toast";
 
 function CruiseForm() {
+  const toast = useRef(null);
   const [travelers, settravelers] = useState(null);
   const [date, setDate] = useState(null);
   const [destination, setDestination] = useState([]);
@@ -26,7 +28,6 @@ function CruiseForm() {
     name: "",
     email: "",
     number: "",
-    travelers: "",
   });
   const traveler = [
     { label: "1", value: "1" },
@@ -220,15 +221,106 @@ function CruiseForm() {
   };
 
   const today = new Date();
-  console.log(date);
-  console.log(destination, cruiselength, cruiseline, cruiseShip, departureport);
+  const formatDate = (date) => {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    return new Date(date).toLocaleDateString("en-US", options);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Prepare the form data
+    const postData = new FormData();
+    postData.append("name", formData.name);
+    postData.append("email", formData.email);
+    postData.append("number", formData.number);
+    postData.append("travelers", travelers);
+
+    // Handle date range
+    if (date && date.length === 2) {
+      postData.append("startDate", date[0].toISOString());
+      postData.append("endDate", date[1].toISOString());
+    } else {
+      postData.append("startDate", "");
+      postData.append("endDate", "");
+    }
+
+    // Append selected options as JSON
+    console.log(destination);
+    postData.append(
+      "destination",
+      JSON.stringify(destination.map((d) => d.destination))
+    );
+    postData.append(
+      "cruiselength",
+      JSON.stringify(cruiselength.map((c) => c.value))
+    );
+    postData.append(
+      "cruiseline",
+      JSON.stringify(cruiseline.map((c) => c.cruisename))
+    );
+    postData.append(
+      "cruiseShip",
+      JSON.stringify(cruiseShip.map((c) => c.cruiseShips))
+    );
+    postData.append(
+      "departureport",
+      JSON.stringify(departureport.map((d) => d.departurePort))
+    );
+
+    // Format form data for the toast, excluding empty values
+    let formDataString = "";
+    for (let [key, value] of postData.entries()) {
+      if (value && typeof value === "string" && value.trim() !== "[]") {
+        // Check if value is not empty or not an empty array
+        // Format date values if the key contains 'Date'
+        if (key === "startDate" || key === "endDate") {
+          value = formatDate(value);
+        }
+        formDataString += `${key}: ${value}\n`;
+      }
+    }
+
+    // Show the toast
+    toast.current.show({
+      severity: "info",
+      summary: "Form Data",
+      detail: formDataString || "No data provided",
+      life: 5000, // Duration in ms
+    });
+
+    // Reset form fields
+    setFormData({ name: "", email: "", number: "", travelers: "" });
+    setDate(null);
+    settravelers(null);
+    setDestination([]);
+    setCruiselength([]);
+    setcruiseline([]);
+    setCruiseShip([]);
+    setDepartureport([]);
+  };
+
+  console.log(
+    formData.name,
+    formData.email,
+    formData.number,
+    formData.travelers,
+    date,
+    destination,
+    cruiselength,
+    cruiseline,
+    cruiseShip,
+    departureport
+  );
   return (
     <div className="main_section">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 p_lrzero">
             <div className="form-left">
+              <Toast ref={toast} />
               <form
+                onSubmit={handleSubmit}
                 action=""
                 className="needs-validation"
                 autoComplete="off"
@@ -286,6 +378,8 @@ function CruiseForm() {
                     <div className="form-group col-md-6 p_lzero mb-2 trav">
                       <label>Travelers</label>
                       <Dropdown
+                        id="travelers"
+                        name="travelers"
                         value={travelers}
                         onChange={(e) => settravelers(e.value)}
                         options={traveler}
@@ -310,6 +404,7 @@ function CruiseForm() {
                     <div className="form-group col-md-6 p_lzero nw_list">
                       <label>Destination</label>
                       <MultiSelect
+                        name="destination"
                         value={destination}
                         options={destinationListitems}
                         onChange={handleDestinationChange}
@@ -359,87 +454,6 @@ function CruiseForm() {
                         showButtonBar
                       />
                     </div>
-
-                    {/* <div className="form-group col-md-6 p_lzero">
-                      <label>Departure Date</label>
-                      <div className="dropdown dropdown-custom">
-                        <button
-                          className="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <span className="dropdown-text">
-                            Departure Date (Any)
-                          </span>
-                        </button>
-                        <ul className="dropdown-menu">
-                          <Calendar
-                            value={dates}
-                            onChange={(e) => setDates(e.value)}
-                            selectionMode="range"
-                            readOnlyInput
-                            hideOnRangeSelection
-                          />
-                          <div className="drop_scroll">
-                            <li className="p-3 pb-0">
-                              <select
-                                placeholder="Any Month"
-                                className="btn-secondary dropdown-toggle btn-secondary_month"
-                              >
-                                
-                              </select>
-                              <select
-                                className="btn-secondary dropdown-toggle btn-secondary_month btn-secondary_day"
-                                placeholder="Any Day"
-                              >
-                                
-                              </select>
-                            </li>
-                            <li className="p-3" style={{ color: "#4560ac" }}>
-                              How flexible is your departure date? <br />
-                              <select
-                                placeholder="MM"
-                                className="btn-secondary dropdown-toggle ps-2"
-                                defaultValue={2}
-                              >
-                                <option value="0">Use this exact date</option>
-                                <option value="1">
-                                  One day before or after
-                                </option>
-                                <option value="2">
-                                  3 days before or after
-                                </option>
-                                <option value="3">
-                                  7 days before or after
-                                </option>
-                                <option value="4">
-                                  14 days before or after
-                                </option>
-                              </select>
-                            </li>
-                          </div>
-                          <div className="bottom row">
-                            <div className="col-md-6 ps-1">
-                              <button
-                                className="btn btn-primary apply_btn"
-                                value="filter"
-                              >
-                                Apply Filters
-                              </button>
-                            </div>
-                            <div className="col-md-6 ps-1">
-                              <button
-                                className="btn btn-primary apply_btn_cancel"
-                                value="filter"
-                              >
-                                Cancel
-                              </button>
-                            </div>
-                          </div>
-                        </ul>
-                      </div>
-                    </div> */}
 
                     {/* cruise line */}
                     <div className="form-group col-md-6 p_lzero nw_list">

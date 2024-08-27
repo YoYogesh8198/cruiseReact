@@ -26,7 +26,7 @@ const PopularPlace = () => {
       <section id="slideshow">
         <div className="entire-content">
           <div className="content-carrousel">
-            <figure className="shadow">
+            <figure className="shadow image">
               <img src={`${images[0]}`} />
             </figure>
             <figure className="shadow">
