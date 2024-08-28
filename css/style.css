@@ -3,34 +3,6 @@
 @import "https://unpkg.com/open-props";
 
 
-/* @font-face {
-  font-family: SFUIText-Regular;
-  src: url(../fonts/SFUIText-Regular_gdi.eot);
-  src: url(../fonts/SFUIText-Regular_gdi.eot?#iefix) format("embedded-opentype"),
-    url(../fonts/SFUIText-Regular_gdi.woff) format("woff"),
-    url(../fonts/SFUIText-Regular_gdi.ttf) format("truetype"),
-    url(../fonts/SFUIText-Regular_gdi.otf) format("opentype"),
-    url(../fonts/SFUIText-Regular_gdi.svg#SFUIText-Regular) format("svg");
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  unicode-range: U+0020-25CA;
-}
-
-@font-face {
-  font-family: SFUIText-Bold;
-  src: url(../fonts/SFUIText-Bold_gdi.eot);
-  src: url(../fonts/SFUIText-Bold_gdi.eot?#iefix) format("embedded-opentype"),
-    url(../fonts/SFUIText-Bold_gdi.woff) format("woff"),
-    url(../fonts/SFUIText-Bold_gdi.ttf) format("truetype"),
-    url(../fonts/SFUIText-Bold_gdi.otf) format("opentype"),
-    url(../fonts/SFUIText-Bold_gdi.svg#SFUIText-Bold) format("svg");
-  font-weight: 700;
-  font-style: normal;
-  font-stretch: normal;
-  unicode-range: U+0020-25CA;
-} */
-
 input:not([type="radio"], [type="checkbox"]),
 select,
 textarea {
@@ -73,11 +45,11 @@ a:hover {
   object-fit: cover;
 }
 
-.priceTagConainer {
+/* .priceTagConainer {
   position: relative;
-}
+} */
 
-.priceTag {
+/* .priceTag {
   float: right;
   border-radius: 50%;
   padding: 10px;
@@ -104,7 +76,7 @@ a:hover {
   font-size: 27px;
   position: relative;
   top: -7px;
-}
+} 
 
 
 .card-content {
@@ -113,7 +85,7 @@ a:hover {
   flex-direction: column;
   gap: 6px;
   padding: 0 15px 10px 0px;
-}
+  /* }
 
 .card-heading {
   font-size: 20px;
@@ -141,7 +113,7 @@ a:hover {
   .list {
     min-height: 235px;
   }
-} */
+} 
 
 
 
@@ -162,7 +134,7 @@ a:hover {
   font-size: 14px;
   color: #333;
   line-height: 18px;
-}
+} */
 
 .actionButton {
   font-size: 18px;
@@ -990,19 +962,19 @@ a.sa-clnowbtn:hover {
   align-items: center;
 }
 
-.box_shadow {
+/* .box_shadow {
   background-color: #fff;
   box-shadow: 0px 9px 19px 9px #e3e3e3;
   -webkit-box-shadow: 0px 9px 19px 9px #e3e3e3;
   -moz-box-shadow: 0px 9px 19px 9px #e3e3e3;
   /* min-height: 520px;
         position: relative; */
-  /* padding: 0 !important; */
-}
+/* padding: 0 !important; 
+} */
 
-.popular_top {
-  /* margin-bottom: 25px; */
-}
+/* .popular_top {
+  /* margin-bottom: 25px; 
+} */
 
 .popular_bottom {
   margin-bottom: 15px;
@@ -1886,12 +1858,12 @@ select option:disabled {
 }
 
 /* new */
-.top_heading {
+/* .top_heading {
   position: relative;
   top: 10px;
-}
+} */
 
-.top_heading,
+/* .top_heading, */
 .top_heading2,
 .top_heading3,
 .top_heading4 {
@@ -2802,7 +2774,7 @@ input[type="checkbox"]:checked {
 
 @media (max-width: 640px) {
 
-  .top_heading,
+  /* .top_heading, */
   .top_heading2,
   .top_heading3 {
     margin: 17px 0 11px !important;
@@ -3032,9 +3004,9 @@ input[type="checkbox"]:checked {
     margin-bottom: 10px;
   }
 
-  .popular_top {
+  /* .popular_top {
     margin-bottom: 0px;
-  }
+  } */
 
   .popover {
     min-width: 220px;
@@ -3197,11 +3169,14 @@ input[type="checkbox"]:checked {
 }
 
 .header {
-  /* padding: var(--size-9) var(--size-6); */
+  position: relative;
+  top: 40px;
+  padding: var(--size-6) var(--size-6);
   text-align: center;
 }
 
 .header__title {
+  margin-top: var(--size-6);
   margin-bottom: var(--size-6);
   font-size: var(--font-size-fluid-2);
   font-weight: var(--font-weight-6);
@@ -3228,7 +3203,7 @@ input[type="checkbox"]:checked {
   justify-content: center;
   flex-wrap: wrap;
   padding: var(--size-2);
-  padding-bottom: 10em;
+  /* padding-bottom: 10em; */
 }
 
 .gallery::before {
@@ -3535,6 +3510,8 @@ input::placeholder {
 /* Text comes on hover effet */
 
 .img-area {
+  position: relative;
+  top: 121px;
   width: 100%;
   margin: 2% auto;
 }
