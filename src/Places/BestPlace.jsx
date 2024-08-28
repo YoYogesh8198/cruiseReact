@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // Functional Carousel component
