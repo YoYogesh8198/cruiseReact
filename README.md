@@ -36,3 +36,38 @@ inifmt
 macos 
 github copilot
 github copilot chat
+
+
+
+On PC 1:
+Install Git: Ensure Git is installed. You can check by running git --version in your terminal or command prompt.
+git init
+git clone <repository-url>
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+Step 2: Commit and Push Changes from PC 1
+git add .
+git commit -m "Initial commit or your message"
+git remote add origin <repository-url>
+git push -u origin master
+
+Step 3: Access and Work on the Repository from PC 2
+Clone the Repository:git clone <repository-url>
+
+Step 4: Pull, Commit, and Push Changes from PC 2
+git add .
+git commit -m "Describe the changes made"
+git push origin master
+
+Step 5: Sync Changes Between PCs
+Pull Latest Changes:
+git pull origin master
+
+
+
+Additional Tips:-
+Create a new branch:git checkout -b new-branch-name
+Switch branches:git checkout branch-name
+Merge branches:git checkout master
+git merge new-branch-name
