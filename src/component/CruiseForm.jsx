@@ -182,23 +182,6 @@ function CruiseForm() {
     setDepartureport(e.value);
   };
 
-  const panelFooterTemplate = () => (
-    <div className="py-2 px-3">
-      <div className="bottom row">
-        <div className="col-md-6 ps-1">
-          <button className="btn btn-primary apply_btn" value="filter">
-            Apply Filters
-          </button>
-        </div>
-        <div className="col-md-6 ps-1">
-          <button className="btn btn-primary apply_btn_cancel" value="filter">
-            Cancel
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-
   const getDestinationLabel = (items) => {
     const count = items.length;
     return `Destination [${count}]`;
@@ -232,7 +215,7 @@ function CruiseForm() {
       return JSON.stringify(dropdownValues.map((d) => d.value)); // Multiple values as array
     }
   };
-
+  // *It is form submit request
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -259,24 +242,39 @@ function CruiseForm() {
     postData.append("cruiseShip", formatDropdownValues(cruiseShip));
     postData.append("departureport", formatDropdownValues(departureport));
 
-    // Format form data for the toast, excluding empty values
-    let formDataString = "";
+    // Convert FormData to a plain object
+    const formDataObj = {};
     for (let [key, value] of postData.entries()) {
-      if (value && typeof value === "string" && value.trim() !== "[]") {
-        // Check if value is not empty or not an empty array
-        // Format date values if the key contains 'Date'
-        if (key === "startDate" || key === "endDate") {
-          value = formatDate(value);
-        }
-        formDataString += `${key}: ${value}\n`;
-      }
+      formDataObj[key] = value;
     }
+
+    // Convert object to JSON
+    const jsonData = JSON.stringify(formDataObj, null, 2);
+
+    // Create a Blob from the JSON data
+    const blob = new Blob([jsonData], { type: "application/json" });
+
+    // Create a URL for the Blob
+    const url = URL.createObjectURL(blob);
+
+    // Create a download link
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "formData.json"; // Filename for the downloaded file
+
+    // Append the link to the body and trigger a click
+    document.body.appendChild(a);
+    a.click();
+
+    // Clean up
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 
     // Show the toast
     toast.current.show({
       severity: "info",
       summary: "Form Data",
-      detail: formDataString || "No data provided",
+      detail: jsonData || "No data provided",
       life: 5000, // Duration in ms
     });
 
@@ -402,10 +400,9 @@ function CruiseForm() {
                         showSelectAll={false}
                         closeIcon
                         virtualScrollerOptions={{ itemSize: 43 }}
-                        maxSelectedLabels={1}
+                        maxSelectedLabels={0}
                         selectedItemsLabel={getDestinationLabel(destination)}
                         placeholder="Destination (Any)"
-                        panelFooterTemplate={panelFooterTemplate}
                         className="btn-secondary dropdown-toggle"
                       />
                     </div>
@@ -419,10 +416,9 @@ function CruiseForm() {
                         showSelectAll={false}
                         closeIcon
                         virtualScrollerOptions={{ itemSize: 43 }}
-                        maxSelectedLabels={1}
+                        maxSelectedLabels={0}
                         placeholder="Cruise Length (Any)"
                         selectedItemsLabel={getLengthLabel(cruiselength)}
-                        panelFooterTemplate={panelFooterTemplate}
                         className="btn-secondary dropdown-toggle"
                       />
                     </div>
@@ -456,10 +452,9 @@ function CruiseForm() {
                         showSelectAll={false}
                         closeIcon
                         virtualScrollerOptions={{ itemSize: 43 }}
-                        maxSelectedLabels={1}
+                        maxSelectedLabels={0}
                         selectedItemsLabel={getLineLabel(cruiseline)}
                         placeholder="Cruise Line (Any)"
-                        panelFooterTemplate={panelFooterTemplate}
                         className="btn-secondary dropdown-toggle"
                       />
                     </div>
@@ -476,10 +471,9 @@ function CruiseForm() {
                         showSelectAll={false}
                         closeIcon
                         virtualScrollerOptions={{ itemSize: 43 }}
-                        maxSelectedLabels={1}
+                        maxSelectedLabels={0}
                         selectedItemsLabel={getShipLabel(cruiseShip)}
                         placeholder="Cruise Ship (Any)"
-                        panelFooterTemplate={panelFooterTemplate}
                         className="btn-secondary dropdown-toggle"
                       />
                     </div>
@@ -494,10 +488,9 @@ function CruiseForm() {
                         showSelectAll={false}
                         closeIcon
                         virtualScrollerOptions={{ itemSize: 43 }}
-                        maxSelectedLabels={1}
+                        maxSelectedLabels={0}
                         selectedItemsLabel={getPortLabel(departureport)}
                         placeholder="Cruise Port (Any)"
-                        panelFooterTemplate={panelFooterTemplate}
                         className="btn-secondary dropdown-toggle"
                       />
                     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { PrimeReactProvider } from "primereact/api";
 import Header from "./component/Header";
 import "../css/style.css";
+import "../css/topPlace.css";
 import "../css/bootstrap.min.css";
 import "../css/bootstrap-select.min.css";
 import CruiseForm from "./component/CruiseForm";
