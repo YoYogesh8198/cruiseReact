@@ -242,39 +242,24 @@ function CruiseForm() {
     postData.append("cruiseShip", formatDropdownValues(cruiseShip));
     postData.append("departureport", formatDropdownValues(departureport));
 
-    // Convert FormData to a plain object
-    const formDataObj = {};
+    // Format form data for the toast, excluding empty values
+    let formDataString = "";
     for (let [key, value] of postData.entries()) {
-      formDataObj[key] = value;
+      if (value && typeof value === "string" && value.trim() !== "[]") {
+        // Check if value is not empty or not an empty array
+        // Format date values if the key contains 'Date'
+        if (key === "startDate" || key === "endDate") {
+          value = formatDate(value);
+        }
+        formDataString += `${key}: ${value}\n`;
+      }
     }
-
-    // Convert object to JSON
-    const jsonData = JSON.stringify(formDataObj, null, 2);
-
-    // Create a Blob from the JSON data
-    const blob = new Blob([jsonData], { type: "application/json" });
-
-    // Create a URL for the Blob
-    const url = URL.createObjectURL(blob);
-
-    // Create a download link
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "formData.json"; // Filename for the downloaded file
-
-    // Append the link to the body and trigger a click
-    document.body.appendChild(a);
-    a.click();
-
-    // Clean up
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
 
     // Show the toast
     toast.current.show({
       severity: "info",
       summary: "Form Data",
-      detail: jsonData || "No data provided",
+      detail: formDataString || "No data provided",
       life: 5000, // Duration in ms
     });
 
