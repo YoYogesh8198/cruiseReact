@@ -212,14 +212,7 @@ function CruiseForm() {
     const options = { year: "numeric", month: "short", day: "numeric" };
     return new Date(date).toLocaleDateString("en-US", options);
   };
-  const formatDropdownValues = (dropdownValues) => {
-    if (dropdownValues.length === 1) {
-      return dropdownValues[0].value; // Single value
-    } else {
-      return JSON.stringify(dropdownValues.map((d) => d.value)); // Multiple values as array
-    }
-  };
-  
+
   // *It is form submit request
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -239,11 +232,16 @@ function CruiseForm() {
       postData.append("startDate", "");
       postData.append("endDate", "");
     }
-    // Helper function to format dropdown values
-    const formatDropdownValues = (values) => {
-      return JSON.stringify(
-        values.filter((v) => v !== null && v !== undefined)
-      );
+
+    const formatDropdownValues = (dropdownValues) => {
+      if (!dropdownValues || dropdownValues.length === 0) {
+        return ""; // Return empty string if no values
+      }
+      if (dropdownValues.length === 1) {
+        return dropdownValues[0]; // Single value
+      } else {
+        return JSON.stringify(dropdownValues); // Multiple values as array
+      }
     };
 
     // Append selected options as JSON
@@ -271,13 +269,13 @@ function CruiseForm() {
       severity: "info",
       summary: "Form Data",
       detail: formDataString || "No data provided",
-      life: 5000, // Duration in ms
+      life: 5000, 
     });
 
     // Reset form fields
     setFormData({ name: "", email: "", number: "", travelers: "" });
     setDate(null);
-    settravelers(""); // Assuming this should be an empty string
+    settravelers("");
     setDestination([]);
     setCruiselength([]);
     setcruiseline([]);
