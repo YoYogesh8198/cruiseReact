@@ -72,3 +72,13 @@ Create a new branch:git checkout -b new-branch-name
 Switch branches:git checkout branch-name
 Merge branches:git checkout master
 git merge new-branch-name
+
+
+
+
+
+
+
+
+
+

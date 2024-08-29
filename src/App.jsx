@@ -11,9 +11,11 @@ import PopularDestination from "./Places/PopularDestination";
 import PopularPlace from "./Places/popularPlace";
 import BestPlace from "./Places/BestPlace";
 import Footer from "./component/Footer";
+import Demo from "./component/Demo";
 
 const App = () => {
   return (
+    // <Demo />
     <div>
       <Header />
       <PrimeReactProvider>

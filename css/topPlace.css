@@ -949,3 +949,8 @@ ul.social-footer2 li a {
     outline: 0;
     box-shadow: none !important;
 }
+
+
+.p-virtualscroller {
+    height: 220px !important;
+}

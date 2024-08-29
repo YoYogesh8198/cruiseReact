@@ -1,34 +1,34 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MultiSelect } from "primereact/multiselect";
+import { Dropdown } from "primereact/dropdown";
+import { InputText } from "primereact/inputtext";
+import { Calendar } from "primereact/calendar";
+import { Toast } from "primereact/toast";
 import destinationList from "/json/destination.json";
 import cruiselengthList from "/json/cruiselength.json";
 import cruiselineList from "/json/cruiseline.json";
 import cruiseShipsList from "/json/cruiseShip.json";
 import departureportList from "/json/departureport.json";
-import { Dropdown } from "primereact/dropdown";
-import { InputText } from "primereact/inputtext";
-import { Calendar } from "primereact/calendar";
-import { Toast } from "primereact/toast";
 
 function CruiseForm() {
   const toast = useRef(null);
-  const [travelers, settravelers] = useState(null);
-  const [date, setDate] = useState(null);
-  const [destination, setDestination] = useState([]);
-  const [cruiselength, setCruiselength] = useState([]);
-  const [cruiseline, setcruiseline] = useState([]);
-  const [cruiseShip, setCruiseShip] = useState([]);
-  const [departureport, setDepartureport] = useState([]);
-  const [destinationListitems, setDestinationListItems] = useState([]);
-  const [cruiselengthListitems, setCruiselengthListItems] = useState([]);
-  const [cruiselineListitems, setcruiselineListItems] = useState([]);
-  const [cruiseShipListitems, setcruiseShipListItems] = useState([]);
-  const [departureportListitems, setdepartureportListItems] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     number: "",
   });
+  const [travelers, settravelers] = useState("");
+  const [destination, setDestination] = useState([]);
+  const [destinationListitems, setDestinationListItems] = useState([]);
+  const [cruiselength, setCruiselength] = useState([]);
+  const [cruiselengthListitems, setCruiselengthListItems] = useState([]);
+  const [date, setDate] = useState(null);
+  const [cruiseline, setcruiseline] = useState([]);
+  const [cruiselineListitems, setcruiselineListItems] = useState([]);
+  const [cruiseShip, setCruiseShip] = useState([]);
+  const [cruiseShipListitems, setcruiseShipListItems] = useState([]);
+  const [departureport, setDepartureport] = useState([]);
+  const [departureportListitems, setdepartureportListItems] = useState([]);
   const traveler = [
     { label: "1", value: "1" },
     { label: "2", value: "2" },
@@ -126,44 +126,48 @@ function CruiseForm() {
   };
 
   useEffect(() => {
-    setDestinationListItems(
-      destinationList.map((item) => ({
+    setDestinationListItems([
+      ...destinationList.map((item) => ({
         label: item.value,
-        value: item,
-      }))
-    );
+        value: item.value,
+      })),
+    ]);
   }, []);
+
   useEffect(() => {
-    setCruiselengthListItems(
-      cruiselengthList.map((item) => ({
-        label: item.value + "Nights",
-        value: item,
-      }))
-    );
+    setCruiselengthListItems([
+      ...cruiselengthList.map((item) => ({
+        label: item.value + " Nights",
+        value: item.value,
+      })),
+    ]);
   }, []);
+
   useEffect(() => {
-    setcruiselineListItems(
-      cruiselineList.map((item) => ({
+    setcruiselineListItems([
+      ...cruiselineList.map((item) => ({
         label: item.value,
-        value: item,
-      }))
-    );
+        value: item.value,
+      })),
+    ]);
   }, []);
+
   useEffect(() => {
-    setcruiseShipListItems(
-      cruiseShipsList.map((item) => ({
+    setcruiseShipListItems([
+      ...cruiseShipsList.map((item) => ({
         label: item.value,
-        value: item,
-      }))
-    );
+        value: item.value,
+      })),
+    ]);
   }, []);
+
   useEffect(() => {
-    setdepartureportListItems(
-      departureportList.map((item) => ({
+    setdepartureportListItems([
+      ...departureportList.map((item) => ({
         label: item.value,
-        value: item,
-      }))
-    );
+        value: item.value,
+      })),
+    ]);
   }, []);
 
   const handleDestinationChange = (e) => {
@@ -215,6 +219,7 @@ function CruiseForm() {
       return JSON.stringify(dropdownValues.map((d) => d.value)); // Multiple values as array
     }
   };
+  
   // *It is form submit request
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -234,6 +239,12 @@ function CruiseForm() {
       postData.append("startDate", "");
       postData.append("endDate", "");
     }
+    // Helper function to format dropdown values
+    const formatDropdownValues = (values) => {
+      return JSON.stringify(
+        values.filter((v) => v !== null && v !== undefined)
+      );
+    };
 
     // Append selected options as JSON
     postData.append("destination", formatDropdownValues(destination));
@@ -266,7 +277,7 @@ function CruiseForm() {
     // Reset form fields
     setFormData({ name: "", email: "", number: "", travelers: "" });
     setDate(null);
-    settravelers(null);
+    settravelers(""); // Assuming this should be an empty string
     setDestination([]);
     setCruiselength([]);
     setcruiseline([]);
@@ -278,7 +289,7 @@ function CruiseForm() {
     formData.name,
     formData.email,
     formData.number,
-    formData.travelers,
+    travelers,
     date,
     destination,
     cruiselength,
@@ -314,7 +325,7 @@ function CruiseForm() {
                         value={formData.name}
                         onKeyDown={handleKeyDown}
                         placeholder="Please enter your name"
-                        required
+                        // required
                       />
                     </div>
                     <div className="form-group col-md-6 p_lzero">
@@ -328,7 +339,7 @@ function CruiseForm() {
                         onKeyDown={handleEmailKeyDown}
                         value={formData.email}
                         placeholder="Please enter a valid email"
-                        required
+                        // required
                       />
                     </div>
                   </div>
@@ -346,7 +357,7 @@ function CruiseForm() {
                         keyfilter="int"
                         placeholder="Please enter your phone number"
                         onChange={handleChange}
-                        required
+                        // required
                       />
                     </div>
                     <div className="form-group col-md-6 p_lzero mb-2 trav">
@@ -378,6 +389,7 @@ function CruiseForm() {
                     <div className="form-group col-md-6 p_lzero nw_list">
                       <label>Destination</label>
                       <MultiSelect
+                        id="destination"
                         name="destination"
                         value={destination}
                         options={destinationListitems}
@@ -395,6 +407,8 @@ function CruiseForm() {
                     <div className="form-group col-md-6 p_lzero nw_list">
                       <label>Cruise Length</label>
                       <MultiSelect
+                        id="cruiselength"
+                        name="cruiselength"
                         value={cruiselength}
                         options={cruiselengthListitems}
                         onChange={handleCruiselengthChange}
@@ -431,6 +445,8 @@ function CruiseForm() {
                     <div className="form-group col-md-6 p_lzero nw_list">
                       <label>Cruise Line</label>
                       <MultiSelect
+                        id="cruiseline"
+                        name="cruiseline"
                         value={cruiseline}
                         options={cruiselineListitems}
                         onChange={handleCruiseLineChange}
@@ -450,6 +466,8 @@ function CruiseForm() {
                     <div className="form-group col-md-6 p_lzero nw_list">
                       <label>Cruise Ship</label>
                       <MultiSelect
+                        id="cruiseShip"
+                        name="cruiseShip"
                         value={cruiseShip}
                         options={cruiseShipListitems}
                         onChange={handleCruiseShipChange}
@@ -467,6 +485,8 @@ function CruiseForm() {
                     <div className="form-group col-md-6 p_lzero nw_list">
                       <label>Cruise Port</label>
                       <MultiSelect
+                        id="departureport"
+                        name="departureport"
                         value={departureport}
                         options={departureportListitems}
                         onChange={handleCruisePortChange}
