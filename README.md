@@ -20,6 +20,7 @@ git push -u origin main
 
 
 https://laracasts.com/discuss/channels/general-discussion/push-and-pull-from-github-for-same-user-and-different-computer-how
+https://www.graphberry.com/item/fanatic-free-react-landing-page
 
 
 
